@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        li {
+            background: white;
+        }
+        li.fav {
+            background: pink;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <h1>Hi!</h1>
     <div id ="app"> 
-        <!-- controlled by vue -->
-        
+        <ul>
+            <li v-for="book in filteredBooks" :class="{ fav: book.isFav}" @click="changeFav(book)">
+                {{ book.title }}
+            </li>
+
+        </ul>
     </div>
     <script src="app.js"></script>
 </body>
