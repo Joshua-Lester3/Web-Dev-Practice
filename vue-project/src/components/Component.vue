@@ -1,12 +1,18 @@
 <template>
-  <h1>{{ header }}</h1>
+  <h1 @click="disappearComponent">{{ header }}</h1>
+  <p>{{ text }}</p>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  props: ['header'],
+  props: ['header', 'text'],
+  methods: {
+    disappearComponent() {
+      this.$emit('close');
+    },
+  },
 });
 </script>
 
